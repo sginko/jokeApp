@@ -1,6 +1,6 @@
-package pl.akademiaspecjalistowit.jokeapp.service.provider;
+package pl.akademiaspecjalistowit.jokeapp.model.provider;
 
-import pl.akademiaspecjalistowit.jokeapp.model.Joke;
+import pl.akademiaspecjalistowit.jokeapp.model.domain.Joke;
 
 public class JokeApiProvider implements JokeProvider{
     @Override

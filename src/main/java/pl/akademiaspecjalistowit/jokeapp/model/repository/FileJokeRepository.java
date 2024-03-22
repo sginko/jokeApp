@@ -1,6 +1,6 @@
-package pl.akademiaspecjalistowit.jokeapp.service.repository;
+package pl.akademiaspecjalistowit.jokeapp.model.repository;
 
-import pl.akademiaspecjalistowit.jokeapp.model.Joke;
+import pl.akademiaspecjalistowit.jokeapp.model.domain.Joke;
 
 import java.util.List;
 

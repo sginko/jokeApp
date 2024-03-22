@@ -1,4 +1,4 @@
-package pl.akademiaspecjalistowit.jokeapp.service.dto;
+package pl.akademiaspecjalistowit.jokeapp.model.dto;
 
 public class JokeDto {
     private String setup;

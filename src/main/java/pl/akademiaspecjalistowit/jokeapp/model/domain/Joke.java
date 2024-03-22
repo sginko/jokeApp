@@ -1,4 +1,4 @@
-package pl.akademiaspecjalistowit.jokeapp.model;
+package pl.akademiaspecjalistowit.jokeapp.model.domain;
 
 import java.util.UUID;
 

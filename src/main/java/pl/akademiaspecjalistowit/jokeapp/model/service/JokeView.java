@@ -1,4 +1,4 @@
-package pl.akademiaspecjalistowit.jokeapp.service;
+package pl.akademiaspecjalistowit.jokeapp.model.service;
 
 public class JokeView implements JokeService {
     @Override
