@@ -26,7 +26,7 @@ public class View {
     }
 
     private boolean printMenu(Scanner scanner) {
-        System.out.println("\n Joke fabreks ");
+        System.out.println("\n Joke fabric ");
         System.out.println("1) Show joke");
         System.out.println("2) For exit");
         System.out.print("Enter your choose: ");
