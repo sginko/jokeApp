@@ -20,8 +20,6 @@ public class Joke {
 
     @Override
     public String toString() {
-        return "Joke{" +
-                "content='" + content + '\'' +
-                '}';
+        return content;
     }
 }
