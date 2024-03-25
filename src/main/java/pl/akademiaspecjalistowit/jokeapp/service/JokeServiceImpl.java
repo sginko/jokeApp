@@ -6,6 +6,8 @@ import pl.akademiaspecjalistowit.jokeapp.provider.JokeProvider;
 import pl.akademiaspecjalistowit.jokeapp.repository.FileJokeRepository;
 import pl.akademiaspecjalistowit.jokeapp.repository.InMemoryJokeRepository;
 
+import java.util.Set;
+
 public class JokeServiceImpl implements JokeService {
     private final JokeProvider jokeProvider;
 
@@ -36,6 +38,16 @@ public class JokeServiceImpl implements JokeService {
     @Override
     public Joke getJoke() {
         return jokeProvider.getJoke();
+    }
+
+    @Override
+    public Joke getJoke(String category) {
+        return jokeProvider.getJokeByCategory(category);
+    }
+
+    @Override
+    public Set<String> getAllNamesOfCategories() {
+        return jokeProvider.getAllNamesOfCategories();
     }
 
 }

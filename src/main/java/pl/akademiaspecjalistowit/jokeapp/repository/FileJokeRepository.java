@@ -17,6 +17,18 @@ public class FileJokeRepository implements JokeRepository {
                 .toList();
     }
 
+    @Override
+    public List<Joke> getAllByCategory(String category) {
+        return this.jokes.entrySet().stream()
+                .filter(entry -> entry.getKey().equalsIgnoreCase(category))
+                .flatMap(entry -> entry.getValue().stream())
+                .toList();
+    }
+
+    public Set<String> getAllNamesOfCategories() {
+        return jokes.keySet();
+    }
+
     private Map<String, List<Joke>> getJokeFromFile() {
         Path filePathVisits = Path.of("jokes.txt");
         Map<String, List<Joke>> mapJokes = new HashMap<>();

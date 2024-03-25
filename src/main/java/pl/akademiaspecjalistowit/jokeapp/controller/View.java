@@ -28,7 +28,8 @@ public class View {
     private boolean printMenu(Scanner scanner) {
         System.out.println();
         System.out.println("1) Show joke");
-        System.out.println("2) For exit");
+        System.out.println("2) Show joke from selected category");
+        System.out.println("3) For exit");
         System.out.print("Enter your choose: ");
         String command = scanner.nextLine();
 
@@ -38,6 +39,12 @@ public class View {
                 System.out.println(jokeService.getJoke());
                 break;
             case "2":
+                System.out.println("Available categories: " + jokeService.getAllNamesOfCategories());
+                System.out.print("Enter category: ");
+                String category = scanner.nextLine().toLowerCase();
+                System.out.println(jokeService.getJoke(category));
+                break;
+            case "3":
                 System.out.println("Close program...");
                 return true;
             default:
