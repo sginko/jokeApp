@@ -2,7 +2,6 @@ package pl.akademiaspecjalistowit.jokeapp.provider;
 
 import pl.akademiaspecjalistowit.jokeapp.model.Joke;
 import pl.akademiaspecjalistowit.jokeapp.repository.JokeRepository;
-
 import java.util.List;
 import java.util.Random;
 
