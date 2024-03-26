@@ -6,7 +6,6 @@ public class JokeAppApplication {
 
     public static void main(String[] args) {
         JokeView userController = new JokeView();
-
         userController.run();
     }
 }

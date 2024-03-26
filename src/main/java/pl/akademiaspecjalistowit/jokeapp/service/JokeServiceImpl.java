@@ -1,6 +1,7 @@
 package pl.akademiaspecjalistowit.jokeapp.service;
 
 import pl.akademiaspecjalistowit.jokeapp.model.Joke;
+import pl.akademiaspecjalistowit.jokeapp.provider.JokeApiProvider;
 import pl.akademiaspecjalistowit.jokeapp.provider.JokeDataProvider;
 import pl.akademiaspecjalistowit.jokeapp.provider.JokeProvider;
 import pl.akademiaspecjalistowit.jokeapp.repository.FileJokeRepository;
@@ -8,54 +9,44 @@ import pl.akademiaspecjalistowit.jokeapp.repository.InMemoryJokeRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 public class JokeServiceImpl implements JokeService {
-    private JokeProvider jokeProvider;
-//    List<> =
-
-//    private static List<JokeProvider> jokeProviders;
-//    private static long counter = 0;
-
-//    public JokeServiceImpl() {
-//        if (isInMemoryRepositoryEmpty()) {
-//            jokeProvider = new JokeDataProvider(new FileJokeRepository());
-//        } else {
-//            jokeProvider = new JokeDataProvider(new InMemoryJokeRepository());
-//        }
-//    }
-//
-//    private boolean isInMemoryRepositoryEmpty() {
-//        InMemoryJokeRepository inMemoryRepository = new InMemoryJokeRepository();
-//        return inMemoryRepository.getAllJokes().isEmpty();
-//    }
+    private List<JokeProvider> jokeProviders;
+    private int providerIndex;
 
     public JokeServiceImpl() {
-//        this.jokeProvider = jokeProviders.get((int) counter++ % jokeProviders.size());
-
-        Random random = new Random();
-        int choice = random.nextInt(2);
-
-        if (choice == 0) {
-            this.jokeProvider = new JokeDataProvider(new InMemoryJokeRepository());
-        } else {
-            this.jokeProvider = new JokeDataProvider(new FileJokeRepository());
-        }
+        jokeProviders = new ArrayList<>();
+        jokeProviders.add(new JokeDataProvider(new FileJokeRepository()));
+        jokeProviders.add(new JokeDataProvider(new InMemoryJokeRepository()));
+        jokeProviders.add(new JokeApiProvider());
+        providerIndex = 0;
     }
 
     @Override
     public Joke getJoke() {
-        return jokeProvider.getJoke();
+        JokeProvider currentProvider = jokeProviders.get(providerIndex);
+        providerIndex = (providerIndex + 1) % jokeProviders.size();
+        return currentProvider.getJoke();
     }
 
     @Override
     public Joke getJoke(String category) {
-        return jokeProvider.getJokeByCategory(category);
+        JokeProvider currentProvider = jokeProviders.get(providerIndex);
+        providerIndex = (providerIndex + 1) % jokeProviders.size();
+        return currentProvider.getJokeByCategory(category);
     }
+//    public Joke getJoke(String category) {
+//        return jokeProvider.getJokeByCategory(category);
+//    }
 
     @Override
     public Set<String> getAllNamesOfCategories() {
-        return jokeProvider.getAllNamesOfCategories();
+        JokeProvider currentProvider = jokeProviders.get(providerIndex);
+        providerIndex = (providerIndex + 1) % jokeProviders.size();
+        return currentProvider.getAllNamesOfCategories();
     }
+//    public Set<String> getAllNamesOfCategories() {
+//        return jokeProvider.getAllNamesOfCategories();
+//    }
 }
