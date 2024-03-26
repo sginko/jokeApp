@@ -5,10 +5,10 @@ import pl.akademiaspecjalistowit.jokeapp.service.JokeServiceImpl;
 
 import java.util.Scanner;
 
-public class View {
+public class JokeView {
     JokeService jokeService;
 
-    public View() {
+    public JokeView() {
         this.jokeService = new JokeServiceImpl();
     }
 

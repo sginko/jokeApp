@@ -1,15 +1,29 @@
 package pl.akademiaspecjalistowit.jokeapp.model;
 
-import uz.khurozov.jokeapi.JokeApi;
-import uz.khurozov.jokeapi.constant.Category;
-import uz.khurozov.jokeapi.constant.Flag;
-import uz.khurozov.jokeapi.constant.Lang;
-import uz.khurozov.jokeapi.constant.Type;
-import uz.khurozov.jokeapi.dto.JokeFilter;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
-import java.util.List;
-import java.util.Set;
+interface JokeDtoMapper {
 
-public class JokeDtoMapper {
+    @GET("/joke")
+    Joke getJoke(
+        @Query("setup") String setup,
+        @Query("delivery") String delivery,
+        @Query("category") String category);
 
-}
+    @GET("/Any")
+    Joke getJoke (@Path("Any") String setup);
+
+    OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://v2.jokeapi.dev/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient.build())
+            .build();
+
+
+    }

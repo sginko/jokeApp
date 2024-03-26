@@ -6,6 +6,7 @@ import pl.akademiaspecjalistowit.jokeapp.provider.JokeProvider;
 import pl.akademiaspecjalistowit.jokeapp.repository.FileJokeRepository;
 import pl.akademiaspecjalistowit.jokeapp.repository.InMemoryJokeRepository;
 
+import java.util.Random;
 import java.util.Set;
 
 public class JokeServiceImpl implements JokeService {

@@ -1,11 +1,11 @@
 package pl.akademiaspecjalistowit.jokeapp;
 
-import pl.akademiaspecjalistowit.jokeapp.controller.View;
+import pl.akademiaspecjalistowit.jokeapp.controller.JokeView;
 
 public class JokeAppApplication {
 
     public static void main(String[] args) {
-        View userController = new View();
+        JokeView userController = new JokeView();
 
         userController.run();
     }
