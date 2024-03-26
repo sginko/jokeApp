@@ -31,7 +31,6 @@ public class FileJokeRepository implements JokeRepository {
 
     private Map<String, List<Joke>> getJokeFromFile() {
         Path filePathVisits = Path.of("jokes.txt");
-        Map<String, List<Joke>> mapJokes = new HashMap<>();
         List<Joke> listJokes = new ArrayList<>();
         try {
             List<String> lines = Files.readAllLines(filePathVisits);
@@ -44,11 +43,22 @@ public class FileJokeRepository implements JokeRepository {
 
                 Joke joke = new Joke(id, content, category);
                 listJokes.add(joke);
-//                mapJokes.put(category, listJokes);
             }
         } catch (IOException e) {
             System.out.println("Error. Cannot read file");
         }
-        return mapJokes;
+        return sortJokeByCategory(listJokes);
+    }
+
+    private Map<String, List<Joke>> sortJokeByCategory(List<Joke> jokes) {
+        Map<String, List<Joke>> sortedJokes = new HashMap<>();
+
+        for (Joke joke : jokes) {
+            String category = joke.getCategory();
+            List<Joke> categoryJokes = sortedJokes.getOrDefault(category, new ArrayList<>());
+            categoryJokes.add(joke);
+            sortedJokes.put(category, categoryJokes);
+        }
+        return sortedJokes;
     }
 }

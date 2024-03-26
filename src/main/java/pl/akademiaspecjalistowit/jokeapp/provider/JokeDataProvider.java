@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class JokeDataProvider implements JokeProvider {
+public class JokeDataProvider implements JokeProvider, AAbstractDataProvider {
     private final JokeRepository jokeRepository;
 
     public JokeDataProvider(JokeRepository jokeRepository) {
@@ -28,8 +28,14 @@ public class JokeDataProvider implements JokeProvider {
         int randomIndex = random.nextInt(jokes.size());
         return jokes.get(randomIndex);
     }
+
     @Override
     public Set<String> getAllNamesOfCategories() {
         return jokeRepository.getAllNamesOfCategories();
+    }
+
+    @Override
+    public Joke getRandomJoke() {
+        return getJoke();
     }
 }
