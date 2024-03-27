@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Set;
 
 public class JokeServiceImpl implements JokeService {
-    private JokeProvider jokeProvider;
     private final List<JokeProvider> listJokeProviders;
     private int providerIndex;
 
@@ -37,17 +36,11 @@ public class JokeServiceImpl implements JokeService {
         providerIndex = (providerIndex + 1) % listJokeProviders.size();
         return currentProvider.getJokeByCategory(category);
     }
-//    public Joke getJoke(String category) {
-//        return jokeProvider.getJokeByCategory(category);
-//    }
+
 
     @Override
     public Set<String> getAllNamesOfCategories() {
         JokeProvider currentProvider = listJokeProviders.get(providerIndex);
-        providerIndex = (providerIndex + 1) % listJokeProviders.size();
         return currentProvider.getAllNamesOfCategories();
     }
-//    public Set<String> getAllNamesOfCategories() {
-//        return jokeProvider.getAllNamesOfCategories();
-//    }
 }
