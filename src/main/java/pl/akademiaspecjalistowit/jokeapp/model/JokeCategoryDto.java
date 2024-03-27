@@ -1,4 +1,4 @@
-package pl.akademiaspecjalistowit.jokeapp.httpclient;
+package pl.akademiaspecjalistowit.jokeapp.model;
 
 import java.util.Set;
 

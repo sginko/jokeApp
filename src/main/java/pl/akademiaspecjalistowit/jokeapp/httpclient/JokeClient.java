@@ -1,5 +1,6 @@
 package pl.akademiaspecjalistowit.jokeapp.httpclient;
 
+import pl.akademiaspecjalistowit.jokeapp.model.JokeCategoryDto;
 import pl.akademiaspecjalistowit.jokeapp.model.JokeDto;
 import retrofit2.Call;
 import retrofit2.http.GET;

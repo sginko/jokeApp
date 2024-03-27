@@ -1,6 +1,7 @@
 package pl.akademiaspecjalistowit.jokeapp.httpclient;
 
 import okhttp3.OkHttpClient;
+import pl.akademiaspecjalistowit.jokeapp.model.JokeCategoryDto;
 import pl.akademiaspecjalistowit.jokeapp.model.JokeDto;
 import retrofit2.Response;
 import retrofit2.Retrofit;

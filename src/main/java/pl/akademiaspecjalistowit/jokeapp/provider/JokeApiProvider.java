@@ -1,15 +1,12 @@
 package pl.akademiaspecjalistowit.jokeapp.provider;
 
-import pl.akademiaspecjalistowit.jokeapp.httpclient.JokeCategoryDto;
+import pl.akademiaspecjalistowit.jokeapp.model.JokeCategoryDto;
 import pl.akademiaspecjalistowit.jokeapp.httpclient.JokeClientService;
 import pl.akademiaspecjalistowit.jokeapp.httpclient.JokeDtoMapper;
 import pl.akademiaspecjalistowit.jokeapp.model.Joke;
 import pl.akademiaspecjalistowit.jokeapp.model.JokeDto;
-import pl.akademiaspecjalistowit.jokeapp.service.JokeService;
 
-import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 public class JokeApiProvider implements JokeProvider {
     private final JokeClientService jokeClientService;
