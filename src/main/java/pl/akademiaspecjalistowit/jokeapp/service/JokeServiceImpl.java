@@ -12,28 +12,29 @@ import java.util.List;
 import java.util.Set;
 
 public class JokeServiceImpl implements JokeService {
-    private List<JokeProvider> jokeProviders;
+    private JokeProvider jokeProvider;
+    private final List<JokeProvider> listJokeProviders;
     private int providerIndex;
 
     public JokeServiceImpl() {
-        jokeProviders = new ArrayList<>();
-        jokeProviders.add(new JokeDataProvider(new FileJokeRepository()));
-        jokeProviders.add(new JokeDataProvider(new InMemoryJokeRepository()));
-        jokeProviders.add(new JokeApiProvider());
+        listJokeProviders = new ArrayList<>();
+        listJokeProviders.add(new JokeDataProvider(new FileJokeRepository()));
+        listJokeProviders.add(new JokeDataProvider(new InMemoryJokeRepository()));
+        listJokeProviders.add(new JokeApiProvider());
         providerIndex = 0;
     }
 
     @Override
     public Joke getJoke() {
-        JokeProvider currentProvider = jokeProviders.get(providerIndex);
-        providerIndex = (providerIndex + 1) % jokeProviders.size();
+        JokeProvider currentProvider = listJokeProviders.get(providerIndex);
+        providerIndex = (providerIndex + 1) % listJokeProviders.size();
         return currentProvider.getJoke();
     }
 
     @Override
     public Joke getJoke(String category) {
-        JokeProvider currentProvider = jokeProviders.get(providerIndex);
-        providerIndex = (providerIndex + 1) % jokeProviders.size();
+        JokeProvider currentProvider = listJokeProviders.get(providerIndex);
+        providerIndex = (providerIndex + 1) % listJokeProviders.size();
         return currentProvider.getJokeByCategory(category);
     }
 //    public Joke getJoke(String category) {
@@ -42,8 +43,8 @@ public class JokeServiceImpl implements JokeService {
 
     @Override
     public Set<String> getAllNamesOfCategories() {
-        JokeProvider currentProvider = jokeProviders.get(providerIndex);
-        providerIndex = (providerIndex + 1) % jokeProviders.size();
+        JokeProvider currentProvider = listJokeProviders.get(providerIndex);
+        providerIndex = (providerIndex + 1) % listJokeProviders.size();
         return currentProvider.getAllNamesOfCategories();
     }
 //    public Set<String> getAllNamesOfCategories() {

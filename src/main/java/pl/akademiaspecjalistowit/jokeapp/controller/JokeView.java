@@ -1,5 +1,7 @@
 package pl.akademiaspecjalistowit.jokeapp.controller;
 
+import pl.akademiaspecjalistowit.jokeapp.provider.JokeProvider;
+import pl.akademiaspecjalistowit.jokeapp.repository.JokeRepository;
 import pl.akademiaspecjalistowit.jokeapp.service.JokeService;
 import pl.akademiaspecjalistowit.jokeapp.service.JokeServiceImpl;
 

@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class FileJokeRepository implements JokeRepository {
-    private Map<String, List<Joke>> jokes = getJokeFromFile();
+    private Map<String, List<Joke>> jokes = sortJokeByCategory(getJokeFromFile());
 
     @Override
     public List<Joke> getAllJokes() {
@@ -29,7 +29,7 @@ public class FileJokeRepository implements JokeRepository {
         return jokes.keySet();
     }
 
-    private Map<String, List<Joke>> getJokeFromFile() {
+    private List<Joke> getJokeFromFile() {
         Path filePathVisits = Path.of("jokes.txt");
         List<Joke> listJokes = new ArrayList<>();
         try {
@@ -47,7 +47,7 @@ public class FileJokeRepository implements JokeRepository {
         } catch (IOException e) {
             System.out.println("Error. Cannot read file");
         }
-        return sortJokeByCategory(listJokes);
+        return listJokes;
     }
 
     private Map<String, List<Joke>> sortJokeByCategory(List<Joke> jokes) {
