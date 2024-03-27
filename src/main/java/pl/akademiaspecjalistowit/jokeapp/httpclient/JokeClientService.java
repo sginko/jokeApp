@@ -45,4 +45,16 @@ public class JokeClientService {
             throw new RuntimeException(e);
         }
     }
+
+    public JokeCategoryDto getCategory() {
+        try {
+            Response<JokeCategoryDto> execute = jokeClient.getCategories().execute();
+            if (execute.code() == 200) {
+                return execute.body();
+            }
+            throw new RuntimeException("Response code is not acceptable");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

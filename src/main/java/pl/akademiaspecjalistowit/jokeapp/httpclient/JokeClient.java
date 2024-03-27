@@ -11,4 +11,7 @@ public interface JokeClient {
 
     @GET("/joke/{category}")
     Call<JokeDto> getJokeByCategory(@Path("category") String category);
+
+    @GET("/categories")
+    Call<JokeCategoryDto> getCategories();
 }

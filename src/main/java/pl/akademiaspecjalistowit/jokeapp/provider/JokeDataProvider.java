@@ -2,11 +2,12 @@ package pl.akademiaspecjalistowit.jokeapp.provider;
 
 import pl.akademiaspecjalistowit.jokeapp.model.Joke;
 import pl.akademiaspecjalistowit.jokeapp.repository.JokeRepository;
+
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class JokeDataProvider implements JokeProvider, AAbstractDataProvider {
+public class JokeDataProvider implements JokeProvider {
     private final JokeRepository jokeRepository;
 
     public JokeDataProvider(JokeRepository jokeRepository) {
@@ -32,10 +33,5 @@ public class JokeDataProvider implements JokeProvider, AAbstractDataProvider {
     @Override
     public Set<String> getAllNamesOfCategories() {
         return jokeRepository.getAllNamesOfCategories();
-    }
-
-    @Override
-    public Joke getRandomJoke() {
-        return getJoke();
     }
 }

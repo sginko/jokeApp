@@ -46,6 +46,7 @@ public class JokeView {
                 break;
             case "3":
                 System.out.println("Close program...");
+                System.exit(0);
                 return true;
             default:
                 System.out.println("Try again");
