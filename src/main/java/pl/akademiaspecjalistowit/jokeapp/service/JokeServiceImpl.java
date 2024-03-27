@@ -37,7 +37,6 @@ public class JokeServiceImpl implements JokeService {
         return currentProvider.getJokeByCategory(category);
     }
 
-
     @Override
     public Set<String> getAllNamesOfCategories() {
         JokeProvider currentProvider = listJokeProviders.get(providerIndex);
