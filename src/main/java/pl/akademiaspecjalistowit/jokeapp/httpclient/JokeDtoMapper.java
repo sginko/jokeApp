@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface JokeDtoMapper {
     static Joke mapToJoke(JokeDto jokeDto) {
-        return new Joke(UUID.randomUUID(), jokeDto.getSetup() + "\n" + jokeDto.getDelivery(), jokeDto.getCategory());
+        return new Joke(jokeDto.getSetup() + "\n" + jokeDto.getDelivery(), jokeDto.getCategory());
     }
 
     // java

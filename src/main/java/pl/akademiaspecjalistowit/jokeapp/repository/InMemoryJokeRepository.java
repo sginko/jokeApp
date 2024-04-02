@@ -30,13 +30,13 @@ public class InMemoryJokeRepository implements JokeRepository {
     private Map<String, List<Joke>> jokesInit() {
         Map<String, List<Joke>> initializedJokes = new HashMap<>();
         initializedJokes.put("Category 1", List.of(
-                new Joke(UUID.randomUUID(), "It's joke one from category 1 from memory"),
-                new Joke(UUID.randomUUID(), "It's joke two from category 1 from memory"),
-                new Joke(UUID.randomUUID(), "It's joke three from category 1 from memory")
+                new Joke("It's joke one from category 1 from memory","Category 1"),
+                new Joke("It's joke two from category 1 from memory", "Category 1"),
+                new Joke("It's joke three from category 1 from memory", "Category 1")
         ));
         initializedJokes.put("Category 2", List.of(
-                new Joke(UUID.randomUUID(), "It's joke one from category 2 from memory"),
-                new Joke(UUID.randomUUID(), "It's joke two from category 2 from memory")
+                new Joke("It's joke one from category 2 from memory", "Category 2"),
+                new Joke("It's joke two from category 2 from memory", "Category 2")
         ));
         return initializedJokes;
     }

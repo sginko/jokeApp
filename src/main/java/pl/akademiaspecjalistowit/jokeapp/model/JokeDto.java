@@ -5,6 +5,10 @@ public class JokeDto {
     private String delivery;
     private String category;
 
+
+    private JokeDto() {
+    }
+
     public JokeDto(String setup, String delivery, String category) {
         this.setup = setup;
         this.delivery = delivery;

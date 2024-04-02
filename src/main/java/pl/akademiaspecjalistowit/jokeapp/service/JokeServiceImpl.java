@@ -17,7 +17,7 @@ public class JokeServiceImpl implements JokeService {
 
     public JokeServiceImpl() {
         listJokeProviders = new ArrayList<>();
-        listJokeProviders.add(new JokeDataProvider(new FileJokeRepository()));
+        listJokeProviders.add(new JokeDataProvider(new FileJokeRepository("src/main/resources/jokes.json")));
         listJokeProviders.add(new JokeDataProvider(new InMemoryJokeRepository()));
         listJokeProviders.add(new JokeApiProvider());
         providerIndex = 0;

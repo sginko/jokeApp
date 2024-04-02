@@ -1,7 +1,5 @@
 package pl.akademiaspecjalistowit.jokeapp.controller;
 
-import pl.akademiaspecjalistowit.jokeapp.provider.JokeProvider;
-import pl.akademiaspecjalistowit.jokeapp.repository.JokeRepository;
 import pl.akademiaspecjalistowit.jokeapp.service.JokeService;
 import pl.akademiaspecjalistowit.jokeapp.service.JokeServiceImpl;
 
@@ -44,6 +42,7 @@ public class JokeView {
                 System.out.println("Available categories: " + jokeService.getAllNamesOfCategories());
                 System.out.print("Enter category: ");
                 String category = scanner.nextLine().toLowerCase();
+                System.out.println();
                 System.out.println(jokeService.getJoke(category));
                 break;
             case "3":
