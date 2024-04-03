@@ -41,7 +41,7 @@ public class JokeView {
             case "2":
                 System.out.println("Available categories: " + jokeService.getAllNamesOfCategories());
                 System.out.print("Enter category: ");
-                String category = scanner.nextLine().toLowerCase();
+                String category = scanner.nextLine();
                 System.out.println();
                 System.out.println(jokeService.getJoke(category));
                 break;

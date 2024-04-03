@@ -90,18 +90,18 @@ public class FileJokeRepository implements JokeRepository {
                 .collect(Collectors.toList());
     }
 
-//    @Override
-//    public List<Joke> getAllByCategory(String category) {
-//        return jokesWithCategories.get(category);
-//    }
-
     @Override
     public List<Joke> getAllByCategory(String category) {
-        return this.jokesWithCategories.entrySet().stream()
-                .filter(entry -> entry.getKey().equalsIgnoreCase(category))
-                .flatMap(entry -> entry.getValue().stream())
-                .toList();
+        return jokesWithCategories.get(category);
     }
+
+//    @Override
+//    public List<Joke> getAllByCategory(String category) {
+//        return this.jokesWithCategories.entrySet().stream()
+//                .filter(entry -> entry.getKey().equalsIgnoreCase(category))
+//                .flatMap(entry -> entry.getValue().stream())
+//                .toList();
+//    }
 
     @Override
     public Set<String> getAllNamesOfCategories() {
